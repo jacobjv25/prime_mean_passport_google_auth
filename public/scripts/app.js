@@ -1,17 +1,21 @@
-var googleAuthApp = angular.module('theGoogles', ['ngRoute']);
+var app = angular.module('movieApp', ['ngRoute']);
 
-googleAuthApp.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', function ($routeProvider) {
 
   $routeProvider
-    .when('/calendar', {
-      templateUrl: '/public/views/templates/calendar.html',
-      controller: 'CalendarController',
-      controllerAs: 'calendar',
+    .when('/profile', {
+      templateUrl: '/public/views/templates/profile.html',
+      controller: 'ProfileController',
+      controllerAs: 'profile',
     })
     .when('/login', {
-      templateUrl: '/public/views/templates/login.html',
-      controller: 'AuthController',
-      controllerAs: 'auth',
+      templateUrl: '/public/views/templates/main.html',
+      controller: 'MovieController',
+      controllerAs: 'movie',
+    })
+    .when('/details', {
+      templateUrl: '/public/views/templates/details.html',
+      controller: 'movieController as ctrl'
     })
     .otherwise({
       redirectTo: 'login',

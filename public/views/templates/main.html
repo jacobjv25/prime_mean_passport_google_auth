@@ -1,0 +1,10 @@
+<form>
+  <input placeholder="what would you like to search for?" type="text" ng-model="movie.search" />
+  <button type="submit" ng-click="movie.searchMovies(movie.search)">Check the webs</button>
+</form>
+<div ng-repeat="movie in movie.searchReturn">
+  <a href = "/details" ng-click = "movie.detailSearch(movie)" ng-model="movies"<p>
+    {{movie.title}}  {{movie.release_year}}
+  </p>
+  <img ng-src="{{movie.poster_120x171}}" />
+</div>
