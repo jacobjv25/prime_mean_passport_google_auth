@@ -1,6 +1,47 @@
-<h1> Details Page </h1>
-<h2> title </h2>
-<h3> {{ MovieService.details }} </h3>
-
 <button ng-click = "addToWatchlist()">Add to watchlist</button>
 <button ng-click = "addToFavorites()">Add to favorites</button>
+<h2>
+    {{ detail.movieDeets.title }}
+</h2>
+  <p>
+    Rated: {{ detail.movieDeets.rating }}
+  </p>
+  <p>
+    Released: {{ detail.movieDeets.release_year }}
+  </p>
+  <img ng-src="{{ detail.movieDeets.poster_120x171 }}" />
+  <p>
+    {{ detail.movieDeets.overview }}
+  </p>
+
+<h3>Watch a trailer</h3>
+  <ul ng-repeat = "trailer in detail.movieTrailers">
+    <li>
+      <a href = "{{trailer.link}}">{{ trailer.display_name }}</a>
+    </li>
+  </ul>
+<h3>Sources</h3>
+  <h4 ng-hide="detail.freeWebSources">Free Sources:</h4>
+    <ul ng-repeat = "freeSource in detail.freeWebSources">
+      <li>
+        <a href = "{{ freeSource.link }}" >{{ freeSource.display_name }}</a>
+      </li>
+    </ul>
+  <h4 ng-hide="detail.purchaseWebSources">Purchase Sources:</h4>
+    <ul ng-repeat = "purchseSource in detail.purchaseWebSources">
+      <li>
+        <a href = "{{ purchaseSource.link }}">{{ purchseSource.display_name }}</a>
+      </li>
+    </ul>
+  <h4 ng-hide:"detail.subscriptionWebSources">Subcription Sources:</h4>
+    <ul ng-repeat = "subcriptionSource in detail.subscriptionWebSources">
+      <li>
+        <a href = "{{ subcriptionSource.link }}">{{ subcriptionSource.display_name }}</a>
+      </li>
+    </ul>
+  <h4 ng-hide="detail.tvAnywhereWebSources">TV Anywhere Sources:</h4>
+    <ul ng-repeat = "tvSource in detail.tvAnywhereWebSources">
+      <li>
+        <a href = "{{ tvSource.link }}">{{ tvSource.display_name }}</a>
+      </li>
+    </ul>

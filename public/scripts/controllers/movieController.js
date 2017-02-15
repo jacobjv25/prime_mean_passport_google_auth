@@ -3,25 +3,33 @@ app.controller("MovieController", function(MovieService){
 
     var ctrl = this;
     ctrl.searchReturn = '';
-    ctrl.details = MovieService.details;
+    ctrl.tvSearchReturn = '';
+    ctrl.movieTitle = null;
 
     ctrl.searchMovies = function(search) {
-      MovieService.searchDatabase(search).then(function(response){
+      MovieService.searchMovieDatabase(search).then(function(response){
       //   console.log(response);
       ctrl.searchReturn = response.data.results;
       console.log(ctrl.searchReturn);
       })
     };//end of searchMovies
 
-    ctrl.detailSearch = function(movie) {
-      console.log("Button clicked, searching for details");
-      MovieService.searchDetails(movie);
+    ctrl.searchTv = function(search) {
+      MovieService.searchTvDatabase(search).then(function(response){
+        ctrl.tvSearchReturn = response.data.results;
+        console.log(ctrl.tvSearchReturn);
+      })
+    }
 
-      // .then(function(response){
-      //   console.log(response);
-      //   ctrl.details = response.data.results[0].description;
-      //   console.log("details", ctrl.details);
-      // })
-    }//end of detailSearch
+    ctrl.storeId = function(id){
+      MovieService.storeMovieId(id);
+    };
+
+    // ctrl.showDetails = function() {
+    //   ctrl.movieTitle = MovieService.details;
+    //   console.log(ctrl.movieTitle);
+    // };
+    //
+    // ctrl.showDetails();
 
   });//end of movieController

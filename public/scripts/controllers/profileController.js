@@ -2,7 +2,8 @@ app.controller('ProfileController', function ($http) {
   console.log('loaded ProfileController');
   var _this = this;
   _this.data = '';
-
+  _this.show = false;
+  _this.user = '';
 
   _this.getFavorites = function(){
     return $http({
@@ -22,10 +23,8 @@ app.controller('ProfileController', function ($http) {
         _this.data = 'Sorry, you are not logged in!';
       } else {
         _this.data = response.data.message;
+        _this.user = response.data.user;
+        _this.show = true;
       }
     });
-
-
-
-
 });

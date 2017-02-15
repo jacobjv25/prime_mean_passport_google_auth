@@ -8,17 +8,18 @@ app.config(['$routeProvider', function ($routeProvider) {
       controller: 'ProfileController',
       controllerAs: 'profile',
     })
-    .when('/login', {
+    .when('/main', {
       templateUrl: '/public/views/templates/main.html',
       controller: 'MovieController',
       controllerAs: 'movie',
     })
     .when('/details', {
       templateUrl: '/public/views/templates/details.html',
-      controller: 'movieController as ctrl'
+      controller: 'DetailController',
+      controllerAs: 'detail',
     })
     .otherwise({
-      redirectTo: 'login',
+      redirectTo: 'main',
     });
 },
 ]);

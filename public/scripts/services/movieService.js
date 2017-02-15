@@ -5,7 +5,7 @@ angular.module('movieApp').service("MovieService", function($http){
 
   this.details = null;
 
-  this.searchDatabase = function(search){
+  this.searchMovieDatabase = function(search){
     console.log('searching for', search);
     return $http({
       method: 'GET',
@@ -14,20 +14,48 @@ angular.module('movieApp').service("MovieService", function($http){
       console.log("Got a response from the API", response);
       return response;
     })
-  }//end of searchDatabase
+  }//end of searchMovieDatabase
+
+  this.searchTvDatabase = function(search){
+    console.log('searching for tv', search);
+    return $http({
+      method: 'GET',
+      url: API + "search" + apiKey + "&type=show&field=title&query=" + search
+    }).then(function(response){
+      console.log("Got a response from the API", response);
+      return response;
+    });
+  };//end of searchTvDatabase
+
+  this.searchMovieDetails = function(search){
+    console.log('searching for', search);
+    return $http({
+      method: 'GET',
+      url: API + 'movies/' + search + apiKey
+    }).then(function(response){
+      console.log("Detailed search response from the API", response);
+      this.details = response;
+      return response;
+    });
+  };//end of searchDetails
 
   this.searchDetails = function(search){
     console.log('searching for', search);
     return $http({
       method: 'GET',
-      url: API + 'movies/' + search.id + apiKey
+      url: API + 'movies/' + search + apiKey
     }).then(function(response){
       console.log("Detailed search response from the API", response);
-      this.details = response.data.results[0].description;
-      console.log(this.details);
-      // return response
+      this.details = response;
+      return response;
     });
   };//end of searchDetails
+
+
+  this.storeMovieId = function(id){
+    this.movieId = id;
+    console.log(this.movieId);
+  }
 
 });//end of MovieService
 

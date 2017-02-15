@@ -14,7 +14,10 @@ var router = express.Router();
  *
  */
 router.get('/', function (req, res) {
-  res.send({ message: 'hi' });
+  res.send({
+    message: 'hi',
+    user: req.user.googleName
+  });
 });
 
 module.exports = router;

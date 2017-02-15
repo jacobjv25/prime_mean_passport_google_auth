@@ -1,7 +1,12 @@
-<h2>profile</h2>
-<section>
+<section ng-hide = "profile.show" >
   <p>
-    Super secret profile
-    <!-- {{profile.data}} -->
+    {{profile.data}}
   </p>
 </section>
+<main ng-show = "profile.show">
+  <h1>Welcome back! {{ profile.user }} </h1>
+  <br />
+  <h3>Favorites:</h3>
+  <br />
+  <h3>Watchlist:</h3>
+</main>

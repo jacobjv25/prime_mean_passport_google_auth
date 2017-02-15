@@ -10,6 +10,7 @@
     <script src="/public/scripts/controllers/navController.js"></script>
     <script src="/public/scripts/controllers/movieController.js"></script>
     <script src="/public/scripts/controllers/profileController.js"></script>
+    <script src="/public/scripts/controllers/detailController.js"></script>
     <link rel="stylesheet" href="/public/styles/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="/public/vendors/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/public/vendors/skeleton.css" />
@@ -23,7 +24,7 @@
         <h1>MovieNight</h1>
         <nav>
           <ul class="row">
-            <li class="two columns"><a href="#home">Home</a></li>
+            <li class="two columns"><a href="#main">Home</a></li>
             <li class="two columns"><a href="#profile">Profile</a></li>
             <li class="six columns" ng-show="nav.displayLogout">Hi {{nav.username}}! | <a href="#" ng-click="nav.logout()">Logout</a></li>
           </ul>
@@ -33,16 +34,11 @@
           {{nav.message.text}}
         </section>
         <!-- Shown for users that are NOT logged in -->
-        <section ng-hide="nav.loggedIn">
+        <section ng-hide="nav.displayLogout">
           <!-- I got this button image from Googles sign-in button brand guidelines page -->
           <a href= "/auth/google"><img src="/public/assets/btn_google_signin_dark_normal_web.png" /></a>
         </section>
         <!-- Shown for users that are logged in -->
-        <section ng-show="nav.loggedIn">
-          <p>
-            You are logged in!
-          </p>
-        </section>
       </header>
       <!-- Pull in views via ngRoutes here -->
       <ng-view></ng-view>

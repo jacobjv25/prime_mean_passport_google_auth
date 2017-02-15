@@ -10,6 +10,7 @@ var auth = require('./routes/auth');
 var isLoggedIn = require('./utils/auth');
 var private = require('./routes/private/index');
 var database = require('./utils/database');
+var favorites = require('./routes/favorites')
 /** ---------- EXPRESS APP CONFIG ---------- **/
 var app = express();
 app.use('/public', express.static('public'));  // serve files from public
