@@ -1,4 +1,4 @@
-app.controller('ProfileController', function ($http, AuthService) {
+app.controller('ProfileController', function ($http, AuthService, MovieService) {
   console.log('loaded ProfileController');
   var _this = this;
   _this.data = '';
@@ -27,5 +27,18 @@ app.controller('ProfileController', function ($http, AuthService) {
   };
 
   _this.getFavorites();
+
+  _this.deleteFavoriteTitle = function(id) {
+    AuthService.deleteFavorite(id).then(function(response){
+      swal("it gone!");
+      location.reload();
+    })
+  }; // end of deleteFavoriteTitle
+
+  _this.storeId = function(id){
+    console.log(id);
+    MovieService.storeMovieId(id);
+  }
+
 
 });

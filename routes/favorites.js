@@ -1,61 +1,50 @@
 var express = require('express');
 var router = express.Router();
-var Person = require('../models/user');
+var User = require('../models/user');
 
 router.get('/', function (req, res) {
-  var userId = req.user._id;
-  Person.find({ id: userId }, function (err, persons) {
+  User.find({ "_id": req.user._id }, function (err, response) {
     if (err) {
       res.sendStatus(500);
       return;
     }
-    console.log(req.user.watchlist);
-    res.send(req.user.watchlist);
-    // res.send(persons);
+    res.send(response);
   });
 });
 
-// router.post('/', function (req, res) {
-//   console.log('Req body', req.body);
-//   console.log(req.user._id);
-//   // var favorite = new Favorite(req.body);
-//
-//   // person.save(function (err) {
-//   //   if (err) {
-//   //     console.log('Error saving', err);
-//   //     res.sendStatus(500);
-//   //     return;
-//   //   }
-//   //
-//   //   res.sendStatus(201); //created
-//   // });
-// });
+router.post('/', function (req, res) {
+  var userFavorite = req.body;
+  var user = req.user;
+  console.log('posting user favorite:', userFavorite, "user:", user);
+  User.findByIdAndUpdate(
+          user._id,
+          {$push: {"watchlist": userFavorite}},
+          function (err) {
+            if (err) {
+              console.log('Error saving', err);
+              res.sendStatus(500);
+              return;
+            }
+            res.sendStatus(201);
+          }
+      )
+}); // end of post
 
-// router.put('/:id', function (req, res) {
-//   var id = req.params.id;
-//   console.log('id received', id);
-//   Person.findByIdAndUpdate(id, req.body, function (err) {
-//       if (err) {
-//         res.sendStatus(500);
-//         return;
-//       }
-//
-//       res.sendStatus(203);
-//     });
-// });
-//
-// router.delete('/:id', function (req, res) {
-//   console.log(req.params);
-//   var id = req.params.id;
-//   console.log('id received', id);
-//   Person.findByIdAndRemove(id, function (err) {
-//       if (err) {
-//         res.sendStatus(500);
-//         return;
-//       }
-//
-//       res.sendStatus(204);
-//   });
-// });
+router.delete('/:id', function (req, res) {
+  var userFavorite = req.params.id;
+  var userId = req.user._id;
+  console.log('user id:', userId, 'favorite entry id:', userFavorite);
+  User.findById(userId, function(err, user){
+    user.watchlist.id(userFavorite).remove();
+    user.save(function(err){
+      if (err) {
+        res.sendStatus(500);
+        return;
+      }
+      res.sendStatus(204);
+    });
+  });
+});// end of delete
+
 
 module.exports = router;

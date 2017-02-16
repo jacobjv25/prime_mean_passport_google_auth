@@ -3,10 +3,10 @@ app.controller("DetailController", function(MovieService, AuthService){
 
     var detail = this;
     detail.movieDeets = null;
-    detail.freeWebSources = false;
-    detail.purchaseWebSources = false;
-    detail.subscriptionWebSources = false;
-    detail.tvAnywhereWebSources = false;
+    detail.freeWebSources = [];
+    detail.purchaseWebSources = [];
+    detail.subscriptionWebSources = [];
+    detail.tvAnywhereWebSources = [];
     detail.movieTrailers = [];
 
     detail.showDetails = function() {
@@ -19,14 +19,36 @@ app.controller("DetailController", function(MovieService, AuthService){
         detail.subscriptionWebSources = response.data.subscription_web_sources;
         detail.tvAnywhereWebSources = response.data.tv_everywhere_web_sources;
         detail.movieTrailers = response.data.trailers.web;
+
+        if (detail.freeWebSources === []) {
+          detail.freeWebSources = false;
+        }
+        if (detail.purchaseWebSources === []) {
+          detail.purchaseWebSources = false;
+        }
+        if (detail.subscriptionWebSources === []) {
+          detail.subscriptionWebSources = false;
+        }
+        if (detail.tvAnywhereWebSources === []){
+          detail.tvAnywhereWebSources = false;
+        }
+        if (detail.movieTrailers === []){
+          detail.movieTrailers = false;
+        }
+        console.log(detail.freeWebSources);
+        console.log(detail.purchaseWebSources);
+        console.log(detail.subscriptionWebSources);
+        console.log(detail.tvAnywhereWebSources);
+        console.log(detail.movieTrailers);
+
       })
     };// end of showDetails
 
     detail.addToWatchlist = function(info){
-      console.log("Adding", info.title, " to watchlist");
+      swal('Added to queue!');
+      console.log("Adding", info.title, " to queue");
       AuthService.addWatchList(info);
-
-    }
+    };//end of addToWatchlist
 
     detail.showDetails();
   });//end of DetailController

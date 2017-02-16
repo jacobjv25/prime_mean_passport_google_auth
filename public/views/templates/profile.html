@@ -6,9 +6,16 @@
 <main ng-show = "profile.show">
   <h1>Welcome back! {{ profile.user }} </h1>
   <br />
-  <h3>Watchlist:</h3>
+  <h3>Queue:</h3>
   <div ng-repeat = "movie in profile.watchlist">
-    <h4> {{ movie.title }}</h4>
+    <div ng-model = "movie.movieId">
+      <a href = "#details" ng-click = "profile.storeId(movie.movieId)">
+        <h4> {{ movie.title }} </h4>
+        <img ng-src = "{{ movie.picture }}" />
+        <br />
+        <button ng-click = "profile.deleteFavoriteTitle(movie._id)">Get this out of my sight!</button>
+      </a>
+    </div>
   </div>
 
 </main>
