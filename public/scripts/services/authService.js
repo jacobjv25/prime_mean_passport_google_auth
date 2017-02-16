@@ -10,7 +10,6 @@ angular.module('movieApp').service("AuthService", function($http){
       url: '/favorites',
       data: user
     }).then(function(response){
-      console.log(response.data);
       return response.data;
     })
   }

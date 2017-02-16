@@ -22,6 +22,7 @@ app.controller('ProfileController', function ($http, AuthService) {
     console.log('getting favorites');
     AuthService.getTheFavorites(user).then(function(response){
       _this.watchlist = response;
+      console.log(_this.watchlist);
     });
   };
 

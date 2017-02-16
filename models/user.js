@@ -10,7 +10,13 @@ var userSchema = mongoose.Schema({
   googleToken: String,
   googleEmail: String,
   googleName: String,
-  watchlist: [],
+  watchlist: [
+    {
+      title: String,
+      picture: String,
+      movieId: Number,
+    }
+  ],
 });
 
 module.exports = mongoose.model('User', userSchema);

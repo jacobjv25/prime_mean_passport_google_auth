@@ -3,13 +3,15 @@ var router = express.Router();
 var Person = require('../models/user');
 
 router.get('/', function (req, res) {
-  Person.find({}, function (err, persons) {
+  var userId = req.user._id;
+  Person.find({ id: userId }, function (err, persons) {
     if (err) {
       res.sendStatus(500);
       return;
     }
-
-    res.send(persons);
+    console.log(req.user.watchlist);
+    res.send(req.user.watchlist);
+    // res.send(persons);
   });
 });
 
