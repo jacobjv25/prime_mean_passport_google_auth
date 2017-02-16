@@ -1,21 +1,11 @@
-app.controller('ProfileController', function ($http) {
+app.controller('ProfileController', function ($http, AuthService) {
   console.log('loaded ProfileController');
   var _this = this;
   _this.data = '';
   _this.show = false;
   _this.user = '';
-
-  _this.getFavorites = function(){
-    return $http({
-      type: 'GET',
-      url: '/favorites'
-    }).then(function(err){
-      console.log("got a GET response from the DB", response);
-          return response;
-        }).catch(function(err){
-          console.log("error getting info from DB", err);
-        });
-    }//end of searchFavorites
+  user = _this.user;
+  _this.watchlist = [];
 
   $http.get('/private/profile')
     .then(function (response) {
@@ -27,4 +17,14 @@ app.controller('ProfileController', function ($http) {
         _this.show = true;
       }
     });
+
+  _this.getFavorites = function(user) {
+    console.log('getting favorites');
+    AuthService.getTheFavorites(user).then(function(response){
+      _this.watchlist = response;
+    });
+  };
+
+  _this.getFavorites();
+
 });

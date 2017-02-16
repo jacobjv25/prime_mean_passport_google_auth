@@ -10,8 +10,7 @@ var userSchema = mongoose.Schema({
   googleToken: String,
   googleEmail: String,
   googleName: String,
-  favorite: String,
-  watchlist: String,
+  watchlist: [],
 });
 
 module.exports = mongoose.model('User', userSchema);

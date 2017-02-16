@@ -1,44 +1,59 @@
-// router.get('/favorites', function(req, res) {
-//   pool.connect(function(err, client, done) {
-//     if (err) {
-//       console.log("Error connecting to DB", err);
-//       res.sendStatus(500);
-//       done();
-//     } else {
-//       client.query("SELECT * FROM favorites;", function(err, result) {
-//         done();
-//         if (err) {
-//           console.log("Error querying DB", err);
-//           res.sendStatus(500);
-//         } else {
-//           console.log("Got GET info from DB", result.rows);
-//           res.send(result.rows);
-//         }
-//       });
-//     }
+var express = require('express');
+var router = express.Router();
+var Person = require('../models/user');
+
+router.get('/', function (req, res) {
+  Person.find({}, function (err, persons) {
+    if (err) {
+      res.sendStatus(500);
+      return;
+    }
+
+    res.send(persons);
+  });
+});
+
+// router.post('/', function (req, res) {
+//   console.log('Req body', req.body);
+//   console.log(req.user._id);
+//   // var favorite = new Favorite(req.body);
+//
+//   // person.save(function (err) {
+//   //   if (err) {
+//   //     console.log('Error saving', err);
+//   //     res.sendStatus(500);
+//   //     return;
+//   //   }
+//   //
+//   //   res.sendStatus(201); //created
+//   // });
+// });
+
+// router.put('/:id', function (req, res) {
+//   var id = req.params.id;
+//   console.log('id received', id);
+//   Person.findByIdAndUpdate(id, req.body, function (err) {
+//       if (err) {
+//         res.sendStatus(500);
+//         return;
+//       }
+//
+//       res.sendStatus(203);
+//     });
+// });
+//
+// router.delete('/:id', function (req, res) {
+//   console.log(req.params);
+//   var id = req.params.id;
+//   console.log('id received', id);
+//   Person.findByIdAndRemove(id, function (err) {
+//       if (err) {
+//         res.sendStatus(500);
+//         return;
+//       }
+//
+//       res.sendStatus(204);
 //   });
-// });//end of router.get
-// router.post('/favorites', function(req, res) {
-//   console.log('req.body', req.body);
-//   pool.connect(function(err, client, done) {
-//     if (err) {
-//       console.log("Error connecting to DB", err);
-//       res.sendStatus(500);
-//       done();
-//     } else {
-//       client.query(
-//         "INSERT INTO favorites (url, comment) VALUES ($1, $2) RETURNING *;",
-//         [ req.body.url, req.body.comment ],
-//         function(err, result) {
-//           done();
-//           if (err) {
-//             console.log("Error querying DB", err);
-//             res.sendStatus(500);
-//           } else {
-//             console.log("Got POST info from DB", result.rows);
-//             res.send(result.rows);
-//           }
-//         }
-//       );
-//     }
-//   });
+// });
+
+module.exports = router;

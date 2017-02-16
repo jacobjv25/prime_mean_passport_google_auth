@@ -1,4 +1,4 @@
-app.controller("DetailController", function(MovieService){
+app.controller("DetailController", function(MovieService, AuthService){
     console.log("DetailController loaded");
 
     var detail = this;
@@ -20,7 +20,13 @@ app.controller("DetailController", function(MovieService){
         detail.tvAnywhereWebSources = response.data.tv_everywhere_web_sources;
         detail.movieTrailers = response.data.trailers.web;
       })
-    };
+    };// end of showDetails
+
+    detail.addToWatchlist = function(info){
+      console.log("Adding", info.title, " to watchlist");
+      AuthService.addWatchList(info);
+
+    }
 
     detail.showDetails();
   });//end of DetailController

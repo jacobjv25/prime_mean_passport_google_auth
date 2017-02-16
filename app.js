@@ -43,6 +43,7 @@ app.use(passport.session());
 /** ---------- ROUTES ---------- **/
 app.use('/auth', auth);
 app.use('/private', isLoggedIn, private);
+app.use('/favorites', favorites)
 app.use('/', index);
 /** ---------- SERVER START ---------- **/
 app.listen(3000, function () {

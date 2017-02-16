@@ -6,7 +6,9 @@
 <main ng-show = "profile.show">
   <h1>Welcome back! {{ profile.user }} </h1>
   <br />
-  <h3>Favorites:</h3>
-  <br />
   <h3>Watchlist:</h3>
+  <div ng-repeat = "movie in profile.watchlist">
+    <h4> {{ movie.title }}</h4>
+  </div>
+
 </main>
