@@ -22,26 +22,26 @@ app.controller("DetailController", function(MovieService, AuthService){
           detail.tvAnywhereWebSources = response.data.tv_everywhere_web_sources;
           detail.movieTrailers = response.data.trailers.web;
 
-          if (detail.freeWebSources === []) {
+          if (detail.freeWebSources.length == 0) {
             detail.freeWebSources = false;
           }
-          if (detail.purchaseWebSources === []) {
+          if (detail.purchaseWebSources.length == 0) {
             detail.purchaseWebSources = false;
           }
-          if (detail.subscriptionWebSources === []) {
+          if (detail.subscriptionWebSources.length == 0) {
             detail.subscriptionWebSources = false;
           }
-          if (detail.tvAnywhereWebSources === []){
+          if (detail.tvAnywhereWebSources.length == 0){
             detail.tvAnywhereWebSources = false;
           }
-          if (detail.movieTrailers === []){
+          if (detail.movieTrailers.length == 0){
             detail.movieTrailers = false;
           }
-          console.log(detail.freeWebSources);
-          console.log(detail.purchaseWebSources);
-          console.log(detail.subscriptionWebSources);
-          console.log(detail.tvAnywhereWebSources);
-          console.log(detail.movieTrailers);
+          console.log("free web sources", detail.freeWebSources);
+          console.log("purchase", detail.purchaseWebSources);
+          console.log("subscription", detail.subscriptionWebSources);
+          console.log("tv anywhere", detail.tvAnywhereWebSources);
+          console.log("trailers", detail.movieTrailers);
 
         }) //end of show movie
       } else {

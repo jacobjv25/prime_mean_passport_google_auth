@@ -1,5 +1,5 @@
-<a href = "#main"><button>Go back to search results</button></a>
-<button ng-click = "detail.addToWatchlist(detail.movieDeets)">Add to queue</button>
+<a href = "#main"><button class = "button-primary">Go back to search results</button></a>
+<button class = "button-primary" ng-click = "detail.addToWatchlist(detail.movieDeets)">Add to queue</button>
 <h2>
     {{ detail.movieDeets.title }}
 </h2>
@@ -21,25 +21,25 @@
     </li>
   </ul>
 <h3>Sources</h3>
-  <h4 ng-false="detail.freeWebSources">Free Sources:</h4>
+  <h4 ng-show="detail.freeWebSources">Free Sources:</h4>
     <ul ng-repeat = "freeSource in detail.freeWebSources">
       <li>
         <a href = "{{ freeSource.link }}" >{{ freeSource.display_name }}</a>
       </li>
     </ul>
-  <h4 ng-false="detail.purchaseWebSources">Purchase Sources:</h4>
+  <h4 ng-show="detail.purchaseWebSources">Purchase Sources:</h4>
     <ul ng-repeat = "purchseSource in detail.purchaseWebSources">
       <li>
         <a href = "{{ purchaseSource.link }}">{{ purchseSource.display_name }}</a>
       </li>
     </ul>
-  <h4 ng-false:"detail.subscriptionWebSources">Subcription Sources:</h4>
+  <h4 ng-show="detail.subscriptionWebSources">Subcription Sources:</h4>
     <ul ng-repeat = "subcriptionSource in detail.subscriptionWebSources">
       <li>
         <a href = "{{ subcriptionSource.link }}">{{ subcriptionSource.display_name }}</a>
       </li>
     </ul>
-  <h4 ng-false="detail.tvAnywhereWebSources">TV Anywhere Sources:</h4>
+  <h4 ng-show="detail.tvAnywhereWebSources">TV Anywhere Sources:</h4>
     <ul ng-repeat = "tvSource in detail.tvAnywhereWebSources">
       <li>
         <a href = "{{ tvSource.link }}">{{ tvSource.display_name }}</a>

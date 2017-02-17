@@ -1,4 +1,4 @@
-app.controller('NavController', function (AuthFactory, $window) {
+app.controller('NavController', function (AuthFactory, $window, $http) {
   var _this = this;
   var authFactory = AuthFactory;
   _this.displayLogout = false; // should we display the logout option on the DOM?
@@ -37,6 +37,13 @@ app.controller('NavController', function (AuthFactory, $window) {
         _this.message.type = 'error';
       });
   };
+
+  _this.logUserIn = function(){
+    console.log("logging IN!");
+    $http({
+      url: '/auth/google'
+    })
+  }
 
   _this.loggedIn = authFactory.checkLoggedIn(); // NOTE: only updated on page load
 });

@@ -8,6 +8,9 @@ li {
 #header {
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 10px;
+  /*background-color: #ff0000;*/
+  color: #000000;
 }
 #header button {
   margin-top: 15px;
@@ -25,6 +28,9 @@ li {
 #header img {
   margin-top: 10px;
 }
+#header a {
+  color: #1b00ff;
+}
 .results {
   text-align: center;
   /*display: inline-block;*/
@@ -36,7 +42,10 @@ li {
 input {
   width: 500px;
 }
-
 .search {
   text-align: center;
+}
+.delete {
+  background-color: #cc3f3c;
+  color: #ffffff;
 }

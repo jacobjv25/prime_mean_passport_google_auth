@@ -14,7 +14,8 @@ router.use('/profile', profile);
  * GET private/index
  */
 router.get('/', function (req, res) {
-  res.redirect(req.session.returnTo || '/'); // they made it!
+  console.log(req);
+  res.redirect('/'); // they made it!
 });
 
 module.exports = router;
