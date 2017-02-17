@@ -4,8 +4,12 @@ angular.module('movieApp').service("MovieService", function($http){
   var apiKey = "?api_key=43a48755edd6c58e4272608642c1120e2a96f99a";
 
   this.details = null;
+  this.movieId = null;
+  this.showId = null;
+  this.search = null;
 
   this.searchMovieDatabase = function(search){
+    this.search = search;
     console.log('searching for', search);
     return $http({
       method: 'GET',
@@ -22,7 +26,7 @@ angular.module('movieApp').service("MovieService", function($http){
       method: 'GET',
       url: API + "search" + apiKey + "&type=show&field=title&query=" + search
     }).then(function(response){
-      console.log("Got a response from the API", response);
+      console.log("API TV response", response);
       return response;
     });
   };//end of searchTvDatabase
@@ -35,18 +39,20 @@ angular.module('movieApp').service("MovieService", function($http){
     }).then(function(response){
       console.log("Detailed search response from the API", response);
       this.details = response;
+      this.showId = null;
       return response;
     });
   };//end of searchDetails
 
-  this.searchDetails = function(search){
+  this.searchTvDetails = function(search){
     console.log('searching for', search);
     return $http({
       method: 'GET',
-      url: API + 'movies/' + search + apiKey
+      url: API + 'shows/' + search + apiKey + '&sources=free,tv_everywhere,subscription,purchase'
     }).then(function(response){
-      console.log("Detailed search response from the API", response);
+      console.log("Detailed TV search response from the API", response);
       this.details = response;
+      this.movieId = null;
       return response;
     });
   };//end of searchDetails
@@ -55,6 +61,11 @@ angular.module('movieApp').service("MovieService", function($http){
   this.storeMovieId = function(id){
     this.movieId = id;
     console.log(this.movieId);
+  }
+
+  this.storeShowId = function(id){
+    this.showId = id;
+    console.log(this.showId);
   }
 
 });//end of MovieService

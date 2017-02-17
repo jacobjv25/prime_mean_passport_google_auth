@@ -30,7 +30,7 @@ app.controller('ProfileController', function ($http, AuthService, MovieService) 
 
   _this.deleteFavoriteTitle = function(id) {
     AuthService.deleteFavorite(id).then(function(response){
-      swal("it gone!");
+      swal("Deleted!");
       location.reload();
     })
   }; // end of deleteFavoriteTitle

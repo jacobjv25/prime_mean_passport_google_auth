@@ -1,22 +1,40 @@
-<form>
-  <input placeholder="search movies" type="text" ng-model="movie.search" />
-  <button type="submit" ng-click="movie.searchMovies(movie.search)">Check the movie webs</button>
-  <input placeholder="search tv shows" type="text" ng-model="tv.search" />
-  <button type="submit" ng-click="movie.searchTv(tv.search)">Check the tv webs</button>
-</form>
-<div ng-repeat="title in movie.searchReturn">
-  <a href = "#details" ng-click="movie.storeId(title.id)">
-    <p>
-      {{ title.title }}  {{ title.release_year }}
-    </p>
-    <img ng-src="{{ title.poster_120x171 }}" />
-  </a>
+<div class = "contrainer search">
+  <div class = "row">
+    <form>
+      <div class = "col-sm-10">
+        <input placeholder="what are you looking for?" type="text" ng-model="movie.search" />
+      </div>
+      <div class = 'col-sm-4'>
+        <button class = "btn-primary" type="submit" ng-click="movie.searchBoth(movie.search)">Check the webs</button>
+      </div>
+    </form>
+  </div>
 </div>
-<div ng-repeat="show in movie.tvSearchReturn">
-  <a href = "#details" ng-click="movie.storeId(show.id)">
-    <p>
-      {{ show.title }}
-    </p>
-    <img ng-src="{{ show.artwork_208x117 }}" />
-  </a>
+<div class="container">
+  <div class="row">
+    <div class = "col-sm-6">
+      <div ng-repeat="title in movie.searchReturn">
+        <a href = "#details" ng-click="movie.storeTitleId(title.id)">
+          <div class = "results">
+            <p>
+              {{ title.title }}  {{ title.release_year }}
+            </p>
+            <img ng-src="{{ title.poster_120x171 }}" />
+          </div>
+        </a>
+      </div>
+      <section>
+        <div ng-repeat="show in movie.tvSearchReturn">
+            <a href = "#details" ng-click="movie.storeTvId(show.id)">
+              <div class = "results">
+                <p>
+                  {{ show.title }} {{ show.id }}
+                </p>
+                <img ng-src="{{ show.artwork_208x117 }}" />
+              </div>
+            </a>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>

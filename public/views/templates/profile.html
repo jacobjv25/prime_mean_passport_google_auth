@@ -4,18 +4,21 @@
   </p>
 </section>
 <main ng-show = "profile.show">
-  <h1>Welcome back! {{ profile.user }} </h1>
+  <h3>Welcome back! {{ profile.user }} </h1>
   <br />
   <h3>Queue:</h3>
-  <div ng-repeat = "movie in profile.watchlist">
-    <div ng-model = "movie.movieId">
-      <a href = "#details" ng-click = "profile.storeId(movie.movieId)">
-        <h4> {{ movie.title }} </h4>
-        <img ng-src = "{{ movie.picture }}" />
-        <br />
-        <button ng-click = "profile.deleteFavoriteTitle(movie._id)">Get this out of my sight!</button>
-      </a>
+  <div class = "container">
+    <div class = "row">
+      <div ng-repeat = "movie in profile.watchlist">
+        <div class = "results col-sm-4" ng-model = "movie.movieId">
+          <a href = "#details" ng-click = "profile.storeId(movie.movieId)">
+            <h4> {{ movie.title }} </h4>
+            <img ng-src = "{{ movie.picture }}" />
+            <br />
+            <button ng-click = "profile.deleteFavoriteTitle(movie._id)">Get this out of my sight!</button>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-
 </main>

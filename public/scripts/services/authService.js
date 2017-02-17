@@ -29,7 +29,7 @@ angular.module('movieApp').service("AuthService", function($http){
     $http.get('/private/profile')
       .then(function (response) {
         if (response.data.err) {
-          sweetAlert('Sorry, you need to log in to add to your watchlist!');
+          sweetAlert('Sorry, you need to log in to add to your queue!');
         } else {
           return $http({
             method: 'POST',

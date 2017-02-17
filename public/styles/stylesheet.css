@@ -1,7 +1,42 @@
 /*html {
-  background-color: #000000;
+  background-color: #3300ff;
   color: #bb0b0b;
 }*/
 li {
   list-style: none;
+}
+#header {
+  text-align: center;
+  margin-top: 20px;
+}
+#header button {
+  margin-top: 15px;
+  margin-right: 20px;
+}
+#header section {
+  margin-top: 15px;
+}
+#header h1 {
+  margin-right: 30px;
+}
+#header p {
+  margin-top: 15px;
+}
+#header img {
+  margin-top: 10px;
+}
+.results {
+  text-align: center;
+  /*display: inline-block;*/
+  width: 300px;
+  height: 280px;
+  margin: 15px;
+  border: 2px solid #000000;
+}
+input {
+  width: 500px;
+}
+
+.search {
+  text-align: center;
 }
