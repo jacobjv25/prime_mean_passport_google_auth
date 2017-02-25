@@ -12,3 +12,5 @@
   };
 
 module.exports = authConfigs;
+
+// http://localhost:3000/auth/google/callback
