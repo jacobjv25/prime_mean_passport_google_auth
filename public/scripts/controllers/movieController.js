@@ -27,7 +27,7 @@ app.controller("MovieController", function(MovieService){
         console.log("nothing to show");
       } else {
         ctrl.searchMovies(search);
-        ctrl.searchTv(search);
+        // ctrl.searchTv(search);
       }
     };
 

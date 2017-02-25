@@ -37,12 +37,6 @@ app.controller("DetailController", function(MovieService, AuthService){
           if (detail.movieTrailers.length == 0){
             detail.movieTrailers = false;
           }
-          console.log("free web sources", detail.freeWebSources);
-          console.log("purchase", detail.purchaseWebSources);
-          console.log("subscription", detail.subscriptionWebSources);
-          console.log("tv anywhere", detail.tvAnywhereWebSources);
-          console.log("trailers", detail.movieTrailers);
-
         }) //end of show movie
       } else {
         var showId = MovieService.showId;
@@ -59,6 +53,22 @@ app.controller("DetailController", function(MovieService, AuthService){
       console.log("Adding", info.title, " to queue");
       AuthService.addWatchList(info);
     };//end of addToWatchlist
+
+    // detail.addToRelated = function(title){
+    //   AuthService.addRelated(title);
+    // };
+
+    detail.addToFavorites = function(info){
+      swal('Added to favorites!');
+      console.log("Adding", info.title, " to favorites");
+      AuthService.addFavorite(info);
+      MovieService.getRelatedTitles(info).then(function(response){
+        response.forEach(function(element){
+            AuthService.addRelated(element);
+        });
+      });
+        // response.forEach(addToRelated(title));
+    };//end of addToFavorites
 
     detail.showDetails();
   });//end of DetailController

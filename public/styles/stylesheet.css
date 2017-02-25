@@ -1,5 +1,5 @@
 /*html {
-  background-color: #3300ff;
+  background-color: #e6fe54;
   color: #bb0b0b;
 }*/
 li {
@@ -9,7 +9,7 @@ li {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 10px;
-  /*background-color: #ff0000;*/
+  background-color: #424aff;
   color: #000000;
 }
 #header button {
@@ -31,13 +31,27 @@ li {
 #header a {
   color: #1b00ff;
 }
-.results {
+/*.results {
   text-align: center;
-  /*display: inline-block;*/
-  width: 300px;
-  height: 280px;
+  display: inline-block;
+  width: 250px;
+  height: 350px;
   margin: 15px;
   border: 2px solid #000000;
+}*/
+.queues {
+  text-align: center;
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+  margin: 15px;
+  padding: 15px;
+  border: 2px solid #000000;
+  background-color: #00ff4f;
+}
+.button {
+  background-color: #04c634;
+  color: #ffffff;
 }
 input {
   width: 500px;

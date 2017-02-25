@@ -13,12 +13,12 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-  var userFavorite = req.body;
+  var userRelatedMovie = req.body;
   var user = req.user;
-  console.log('posting user favorite:', userFavorite, "user:", user);
+  console.log('posting related movies:', userRelatedMovie, "user:", user);
   User.findByIdAndUpdate(
           user._id,
-          {$push: {"favorites": userFavorite}},
+          {$push: {"related": userRelatedMovie}},
           function (err) {
             if (err) {
               console.log('Error saving', err);
@@ -31,11 +31,11 @@ router.post('/', function (req, res) {
 }); // end of post
 
 router.delete('/:id', function (req, res) {
-  var userFavorite = req.params.id;
+  var userRelatedMovie = req.params.id;
   var userId = req.user._id;
-  console.log('user id:', userId, 'favorite entry id:', userFavorite);
+  console.log('user id:', userId, 'related entry id:', userWatchlist);
   User.findById(userId, function(err, user){
-    user.favorites.id(userFavorite).remove();
+    user.watchlist.id(userRelatedMovie).remove();
     user.save(function(err){
       if (err) {
         res.sendStatus(500);

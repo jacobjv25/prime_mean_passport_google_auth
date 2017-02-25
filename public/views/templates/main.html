@@ -1,37 +1,34 @@
-<div class = "contrainer search">
+<div class = "contrainer">
   <div class = "row">
-    <form>
-      <div class = "col-sm-10">
-        <input placeholder="what are you looking for?" type="text" ng-model="movie.search" />
-      </div>
-      <div class = 'col-sm-4'>
-        <button class = "button-primary" type="submit" ng-click="movie.searchBoth(movie.search)">Check the webs</button>
-      </div>
-    </form>
+    <div class = "search">
+      <form>
+        <div class = "eleven columns">
+          <input placeholder="what are you looking for?" type="text" ng-model="movie.search" />
+        </div>
+        <div class = "ten columns">
+          <button class = "button-primary" type="submit" ng-click="movie.searchBoth(movie.search)">Check the webs</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
-<div class="container">
+
   <div class="row">
-    <div class = "col-sm-6">
-      <div ng-repeat="title in movie.searchReturn">
+    <div>
+      <div class = "three columns" ng-repeat="title in movie.searchReturn">
         <a href = "#details" ng-click="movie.storeTitleId(title.id)">
-          <div class = "results">
             <p>
               {{ title.title }}  {{ title.release_year }}
             </p>
             <img ng-src="{{ title.poster_120x171 }}" />
-          </div>
         </a>
       </div>
       <section>
-        <div ng-repeat="show in movie.tvSearchReturn">
+        <div class = "results" ng-repeat="show in movie.tvSearchReturn">
             <a href = "#details" ng-click="movie.storeTvId(show.id)">
-              <div class = "results">
                 <p>
                   {{ show.title }} {{ show.id }}
                 </p>
                 <img ng-src="{{ show.artwork_208x117 }}" />
-              </div>
             </a>
         </div>
       </section>

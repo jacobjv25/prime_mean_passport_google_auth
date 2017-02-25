@@ -10,7 +10,9 @@ var auth = require('./routes/auth');
 var isLoggedIn = require('./utils/auth');
 var private = require('./routes/private/index');
 var database = require('./utils/database');
-var favorites = require('./routes/favorites')
+var favorites = require('./routes/favorites');
+var watchlist = require('./routes/watchlist');
+var related = require('./routes/related');
 /** ---------- EXPRESS APP CONFIG ---------- **/
 var app = express();
 app.use('/public', express.static('public'));  // serve files from public
@@ -43,9 +45,16 @@ app.use(passport.session());
 /** ---------- ROUTES ---------- **/
 app.use('/auth', auth);
 app.use('/private', isLoggedIn, private);
-app.use('/favorites', favorites)
+app.use('/favorites', favorites);
+app.use('/watchlist', watchlist);
+app.use('/related', related);
 app.use('/', index);
 /** ---------- SERVER START ---------- **/
-app.listen(3000, function () {
-  console.log('Now running on port ', 3000);
+// app.listen(3000, function () {
+//   console.log('Now running on port ', 3000);
+// });
+var port = process.env.PORT || 3000;
+
+var server = app.listen(port, function () {
+    console.log('server listening on port:', server.address().port);
 });

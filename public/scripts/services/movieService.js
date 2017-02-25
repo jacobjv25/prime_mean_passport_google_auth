@@ -7,6 +7,7 @@ angular.module('movieApp').service("MovieService", function($http){
   this.movieId = null;
   this.showId = null;
   this.search = null;
+  this.relatedTitles = [];
 
   this.searchMovieDatabase = function(search){
     this.search = search;
@@ -17,7 +18,7 @@ angular.module('movieApp').service("MovieService", function($http){
     }).then(function(response){
       console.log("Got a response from the API", response);
       return response;
-    })
+    });
   }//end of searchMovieDatabase
 
   this.searchTvDatabase = function(search){
@@ -67,6 +68,19 @@ angular.module('movieApp').service("MovieService", function($http){
     this.showId = id;
     console.log(this.showId);
   }
+
+  this.getRelatedTitles = function(info){
+    console.log(this.relatedTitles);
+    console.log("getting titles relating to", info.id);
+    return $http({
+      method: 'GET',
+      url: API + 'movies/' + info.id + '/related' + apiKey
+    }).then(function(response){
+        this.relatedTitles = response.data.results.slice(0,3);
+        console.log("related titles", this.relatedTitles);
+        return this.relatedTitles;
+    });
+  }//end of getRelatedTitles
 
 });//end of MovieService
 
