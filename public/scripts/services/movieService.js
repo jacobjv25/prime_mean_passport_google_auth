@@ -1,6 +1,6 @@
 angular.module('movieApp').service("MovieService", function($http){
 
-  var API = "http://api-public.guidebox.com/v2/";
+  var API = "https://api-public.guidebox.com/v2/";
   var apiKey = "?api_key=43a48755edd6c58e4272608642c1120e2a96f99a";
 
   this.details = null;
