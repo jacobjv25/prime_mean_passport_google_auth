@@ -1,8 +1,4 @@
-/**
- * User schema for Mongoose.
- *
- * @module models/user
- */
+
 var mongoose = require('mongoose');
 
 var userSchema = mongoose.Schema({

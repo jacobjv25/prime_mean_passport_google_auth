@@ -1,7 +1,4 @@
-/**
- * Handles requests for Google calendar data.
- * @module private/calendar
- */
+
 var express = require('express');
 var router = express.Router();
 /**
