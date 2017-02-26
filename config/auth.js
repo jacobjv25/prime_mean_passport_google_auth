@@ -14,3 +14,4 @@
 module.exports = authConfigs;
 
 // http://localhost:3000/auth/google/callback
+// https://whispering-sea-76580.herokuapp.com/auth/google/callback

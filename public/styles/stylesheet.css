@@ -1,20 +1,27 @@
-/*html {
-  background-color: #e6fe54;
+html {
+  background-color: #000000;
   color: #bb0b0b;
-}*/
+}
 li {
   list-style: none;
+}
+button {
+  background-color: #bb0b0b;
+  color: #ffffff;
 }
 #header {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 10px;
-  background-color: #424aff;
-  color: #000000;
+  background-image: url(/public/assets/Movie-Night-Banner.jpg);
+  height: 300px;
+  width: auto;
+  color: #c92121;
 }
 #header button {
   margin-top: 15px;
   margin-right: 20px;
+  background-color: #bb0b0b;
 }
 #header section {
   margin-top: 15px;
@@ -31,14 +38,16 @@ li {
 #header a {
   color: #1b00ff;
 }
-/*.results {
+.results {
   text-align: center;
   display: inline-block;
-  width: 250px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   margin: 15px;
+  padding: 15px;
   border: 2px solid #000000;
-}*/
+  background-color: #3a3b3a;
+}
 .queues {
   text-align: center;
   display: inline-block;
@@ -47,10 +56,10 @@ li {
   margin: 15px;
   padding: 15px;
   border: 2px solid #000000;
-  background-color: #00ff4f;
+  background-color: #3a3b3a;
 }
 .button {
-  background-color: #04c634;
+  background-color: #bb0b0b;
   color: #ffffff;
 }
 input {
@@ -60,6 +69,10 @@ input {
   text-align: center;
 }
 .delete {
-  background-color: #cc3f3c;
+  background-color: #bb0b0b;
   color: #ffffff;
+}
+h3 {
+  text-align: center;
+  color: #bb0b0b;
 }

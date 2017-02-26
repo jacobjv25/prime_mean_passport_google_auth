@@ -5,17 +5,17 @@
     </p>
   </section>
   <main ng-show = "profile.show">
-    <h3>Welcome back! {{ profile.user }} </h1>
+    <h3>Welcome back! {{ profile.user }} </h3>
     <br />
     <div class = "row">
       <div class = "four columns">
-        <button class = "button-primary" ng-click = "profile.showQueue()">Queue</button>
+        <button ng-click = "profile.showQueue()">Queue</button>
       </div>
       <div class = "four columns">
-        <button class = "button-primary" ng-click = "profile.showFavorites()">Favorites</button>
+        <button ng-click = "profile.showFavorites()">Favorites</button>
       </div>
       <div class = "four columns">
-        <button class = "button-primary" ng-click = "profile.showRecommendations()">Recommendations</button>
+        <button ng-click = "profile.showRecommendations()">Recommendations</button>
       </div>
     </div>
     <div ng-show = "profile.queue">
