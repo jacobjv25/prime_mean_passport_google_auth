@@ -85,6 +85,9 @@ h3 {
 .details a {
   color: #2f31db;
 }
+.details li {
+  font-size: 20px;
+}
 h2 {
   color: #bb0b0b;
 }

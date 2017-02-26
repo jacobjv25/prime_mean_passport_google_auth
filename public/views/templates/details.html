@@ -5,16 +5,16 @@
   <h2>
       {{ detail.movieDeets.title }}
   </h2>
-    <p>
+    <h5>
       Rated: {{ detail.movieDeets.rating }}
-    </p>
-    <p>
+    </h5>
+    <h5>
       Released: {{ detail.movieDeets.release_year }}
-    </p>
+    </h5>
     <img ng-src="{{ detail.movieDeets.poster_120x171 }}" />
-    <p>
+    <h5>
       {{ detail.movieDeets.overview }}
-    </p>
+    </h5>
 
   <h2 ng-false = "detail.movieTrailers">Watch a trailer</h2>
     <ul ng-repeat = "trailer in detail.movieTrailers">
