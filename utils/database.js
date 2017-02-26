@@ -8,8 +8,8 @@ var mongoose = require('mongoose');
 
 module.exports = function () {
 
-  // mongoose.connect(databaseUri);
-  mongoose.connect('mongodb://heroku_jxdknn4j:o5cu0b6hqgk0dda2pcatstj6fg@ds161029.mlab.com:61029/heroku_jxdknn4j');
+  mongoose.connect(databaseUri);
+  // mongoose.connect('mongodb://heroku_jxdknn4j:o5cu0b6hqgk0dda2pcatstj6fg@ds161029.mlab.com:61029/heroku_jxdknn4j');
 
   // When successfully connected
   mongoose.connection.on('connected', function () {
