@@ -15,7 +15,7 @@ app.controller('ProfileController', function ($http, AuthService, MovieService) 
   $http.get('/private/profile')
     .then(function (response) {
       if (response.data.err) {
-        _this.data = 'Sorry, you are not logged in!';
+        _this.data = 'You need to log in to view your profile';
       } else {
         _this.data = response.data.message;
         _this.user = response.data.user;

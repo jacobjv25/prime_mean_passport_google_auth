@@ -1,6 +1,12 @@
 html {
-  background-color: #000000;
+  /*background-color: #000000;*/
+  background-image: url(/public/assets/backgrounds-stars-20.png);
   color: #bb0b0b;
+  font-family: 'Prosto One', cursive;
+}
+h1 {
+  text-outline: 2px 2px #ffffff;
+  font-family: 'Prosto One', cursive;
 }
 li {
   list-style: none;
@@ -35,31 +41,71 @@ button {
 #header img {
   margin-top: 10px;
 }
-#header a {
+#goHome {
+  text-decoration: none;
+  color: #bb0b0b;
+}
+#logout {
   color: #1b00ff;
 }
 .results {
   text-align: center;
-  display: inline-block;
   width: 400px;
-  height: 400px;
-  margin: 15px;
+  height: 300px;
+  margin: 10px;
   padding: 15px;
   border: 2px solid #000000;
-  background-color: #3a3b3a;
+  background-color: rgba(58, 59, 58, 0.4);
+  border-radius: 7%;
+  font-family: 'Prosto One', cursive;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .results a {
   color: #bb0b0b;
 }
-.queues {
+.relatedMovies {
   text-align: center;
-  display: inline-block;
-  width: 400px;
-  height: 400px;
-  margin: 15px;
+  width: 250px;
+  height: 360px;
+  margin: 7px;
   padding: 15px;
   border: 2px solid #000000;
-  background-color: #3a3b3a;
+  background-color: rgba(58, 59, 58, 0.4);
+  border-radius: 7%;
+  font-family: 'Prosto One', cursive;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.faveMovies {
+  text-align: center;
+  width: 250px;
+  height: 380px;
+  margin: 7px;
+  padding: 15px;
+  border: 2px solid #000000;
+  background-color: rgba(58, 59, 58, 0.4);
+  border-radius: 7%;
+  font-family: 'Prosto One', cursive;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.queuedMovies {
+  text-align: center;
+  width: 250px;
+  height: 450px;
+  margin: 7px;
+  padding: 15px;
+  border: 2px solid #000000;
+  background-color: rgba(58, 59, 58, 0.4);
+  border-radius: 7%;
+  font-family: 'Prosto One', cursive;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .button {
   background-color: #bb0b0b;
@@ -78,6 +124,7 @@ input {
 h3 {
   text-align: center;
   color: #bb0b0b;
+  font-family: 'Prosto One', cursive;
 }
 .details {
   color: #f9f9f9;
@@ -89,5 +136,26 @@ h3 {
   font-size: 20px;
 }
 h2 {
+  color: #bb0b0b;
+  font-family: 'Prosto One', cursive;
+}
+.movieDetails {
+  color: #bb0b0b;
+}
+#trailer {
+  text-decoration: none;
+  font-family: 'Prosto One', cursive;
+}
+#trailer:hover {
+  color: #6567fc;
+}
+.source {
+  text-decoration: none;
+  font-family: 'Prosto One', cursive;
+}
+.source:hover {
+  color: #6567fc;
+}
+h4 {
   color: #bb0b0b;
 }

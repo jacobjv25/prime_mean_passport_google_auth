@@ -1,4 +1,4 @@
-<div class = "contrainer">
+<div class = "container">
   <div class = "row">
     <div class = "search">
       <form>
@@ -6,7 +6,7 @@
           <input placeholder="what are you looking for?" type="text" ng-model="movie.search" />
         </div>
         <div class = "eleven columns">
-          <button type="submit" ng-click="movie.searchBoth(movie.search)">Check the webs</button>
+          <button type="submit" ng-click="movie.searchBoth(movie.search)">Search for movies</button>
         </div>
       </form>
     </div>
@@ -16,9 +16,9 @@
     <div>
       <div class = "three columns results" ng-repeat="title in movie.searchReturn">
         <a href = "#details" ng-click="movie.storeTitleId(title.id)">
-            <p>
+            <h6>
               {{ title.title }}  {{ title.release_year }}
-            </p>
+            </h6>
             <img ng-src="{{ title.poster_120x171 }}" />
         </a>
       </div>

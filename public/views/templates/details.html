@@ -19,32 +19,32 @@
   <h2 ng-false = "detail.movieTrailers">Watch a trailer</h2>
     <ul ng-repeat = "trailer in detail.movieTrailers">
       <li>
-        <a href = "{{trailer.link}}">{{ trailer.display_name }}</a>
+        <a id = "trailer" href = "{{trailer.link}}">{{ trailer.display_name }}</a>
       </li>
     </ul>
   <h2>Sources</h2>
     <h4 ng-show="detail.freeWebSources">Free Sources:</h4>
       <ul ng-repeat = "freeSource in detail.freeWebSources">
         <li>
-          <a href = "{{ freeSource.link }}" >{{ freeSource.display_name }}</a>
+          <a class = "source" href = "{{ freeSource.link }}" >{{ freeSource.display_name }}</a>
         </li>
       </ul>
     <h4 ng-show="detail.purchaseWebSources">Purchase Sources:</h4>
       <ul ng-repeat = "purchseSource in detail.purchaseWebSources">
         <li>
-          <a href = "{{ purchaseSource.link }}">{{ purchseSource.display_name }}</a>
+          <a class = "source" href = "{{ purchaseSource.link }}">{{ purchaseWebSources.display_name }}</a>
         </li>
       </ul>
-    <h4 ng-show="detail.subscriptionWebSources">Subcription Sources:</h4>
+    <h4 ng-show="detail.subscriptionWebSources">Subscription Sources:</h4>
       <ul ng-repeat = "subcriptionSource in detail.subscriptionWebSources">
         <li>
-          <a href = "{{ subcriptionSource.link }}">{{ subcriptionSource.display_name }}</a>
+          <a class = "source" href = "{{ subcriptionSource.link }}">{{ subcriptionSource.display_name }}</a>
         </li>
       </ul>
     <h4 ng-show="detail.tvAnywhereWebSources">TV Anywhere Sources:</h4>
       <ul ng-repeat = "tvSource in detail.tvAnywhereWebSources">
         <li>
-          <a href = "{{ tvSource.link }}">{{ tvSource.display_name }}</a>
+          <a class = "source" href = "{{ tvSource.link }}">{{ tvSource.display_name }}</a>
         </li>
       </ul>
 </section>

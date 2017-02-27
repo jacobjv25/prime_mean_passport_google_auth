@@ -1,8 +1,8 @@
 <div class = "container">
   <section ng-hide = "profile.show" >
-    <p>
+    <h3>
       {{profile.data}}
-    </p>
+    </h3>
   </section>
   <main ng-show = "profile.show">
     <h3>Welcome back! {{ profile.user }} </h3>
@@ -21,10 +21,10 @@
     <div ng-show = "profile.queue">
       <h3>Queue:</h3>
         <div class = "row">
-          <div class = "five columns queues" ng-repeat = "movie in profile.watchlist">
+          <div class = "four columns queuedMovies" ng-repeat = "movie in profile.watchlist">
             <div  ng-model = "movie.movieId">
-              <a href = "#details" ng-click = "profile.storeId(movie.movieId)">
-                <h4> {{ movie.title }} </h4>
+              <a class = "movieDetails" href = "#details" ng-click = "profile.storeId(movie.movieId)">
+                <h5> {{ movie.title }} </h5>
                 <img ng-src = "{{ movie.picture }}" />
                 <br />
               </a>
@@ -34,37 +34,35 @@
           </div>
         </div>
     </div>
-    <div ng-show = "profile.favorites">
-      <h3>Favorites:</h3>
-      <div class = "container">
-        <div class = "row">
-          <div class = "five columns queues" ng-repeat = "movie in profile.favoriteTitles">
-            <div ng-model = "movie.movieId">
-              <a href = "#details" ng-click = "profile.storeId(movie.movieId)">
-                <h4> {{ movie.title }} </h4>
-                <img ng-src = "{{ movie.picture }}" />
-                <br />
-              </a>
-                <button class = "delete" ng-click = "profile.deleteFavoriteTitle(movie._id)">Remove from list</button>
+    <div>
+      <div ng-show = "profile.favorites">
+        <h3>Favorites:</h3>
+          <div class = "row">
+            <div class = "four columns faveMovies" ng-repeat = "movie in profile.favoriteTitles">
+              <div ng-model = "movie.movieId">
+                <a class = "movieDetails" href = "#details" ng-click = "profile.storeId(movie.movieId)">
+                  <h5> {{ movie.title }} </h5>
+                  <img ng-src = "{{ movie.picture }}" />
+                  <br />
+                </a>
+                  <button class = "delete" ng-click = "profile.deleteFavoriteTitle(movie._id)">Remove from list</button>
+              </div>
             </div>
           </div>
-        </div>
       </div>
-    </div>
-    <div ng-show = "profile.recommendations">
-      <h3>Recommended Titles:</h3>
-      <div class = "container">
-        <div class = "row">
-          <div class = "five columns queues" ng-repeat = "movie in profile.recommendedTitles">
-            <div ng-model = "movie.movieId">
-              <a href = "#details" ng-click = "profile.storeId(movie.movieId)">
-                <h4> {{ movie.title }} </h4>
-                <img ng-src = "{{ movie.picture }}" />
-                <br />
-              </a>
+      <div ng-show = "profile.recommendations">
+        <h3>Recommended Titles:</h3>
+          <div class = "row">
+            <div class = "four columns relatedMovies" ng-repeat = "movie in profile.recommendedTitles">
+              <div ng-model = "movie.movieId">
+                <a class = "movieDetails" href = "#details" ng-click = "profile.storeId(movie.movieId)">
+                  <h5> {{ movie.title }} </h5>
+                  <img ng-src = "{{ movie.picture }}" />
+                  <br />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </main>
