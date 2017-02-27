@@ -49,7 +49,7 @@ app.controller("DetailController", function(MovieService, AuthService){
     };// end of showDetails
 
     detail.addToWatchlist = function(info){
-      swal('Added to queue!');
+      sweetAlert("Done!", "Added to queue!", "success");
       console.log("Adding", info.title, " to queue");
       AuthService.addWatchList(info);
     };//end of addToWatchlist
@@ -59,7 +59,7 @@ app.controller("DetailController", function(MovieService, AuthService){
     // };
 
     detail.addToFavorites = function(info){
-      swal('Added to favorites!');
+      sweetAlert("Done!", "Added to favorites!", "success");
       console.log("Adding", info.title, " to favorites");
       AuthService.addFavorite(info);
       MovieService.getRelatedTitles(info).then(function(response){

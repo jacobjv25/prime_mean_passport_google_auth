@@ -28,7 +28,7 @@
                 <img ng-src = "{{ movie.picture }}" />
                 <br />
               </a>
-                <button class = "delete" ng-click = "profile.deleteFavoriteTitle(movie._id)">Remove from list</button>
+                <button class = "delete" ng-click = "profile.deleteFromWatchlist(movie._id)">Remove from list</button>
                 <button class = "button-primary" ng-click = "profile.addMovieToFavorites(movie)">Add to favorites</button>
             </div>
           </div>

@@ -63,14 +63,14 @@ app.controller('ProfileController', function ($http, AuthService, MovieService) 
 
   _this.deleteFavoriteTitle = function(id) {
     AuthService.deleteFavorite(id).then(function(response){
-      swal("Deleted!");
+      sweetAlert("Deleted!", "Movie removed from favorites", "success");
       location.reload();
     })
   }; // end of deleteFavoriteTitle
 
   _this.deleteFromWatchlist = function(id) {
     AuthService.deleteWatchlist(id).then(function(response){
-      swal("Deleted!");
+      sweetAlert("Deleted!", "Movie removed from queue", "success");
       location.reload();
     })
   }; // end of deleteFavoriteTitle

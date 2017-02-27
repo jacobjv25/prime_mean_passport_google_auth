@@ -35,7 +35,7 @@ angular.module('movieApp').service("AuthService", function($http){
     $http.get('/private/profile')
       .then(function (response) {
         if (response.data.err) {
-          sweetAlert('Sorry, you need to log in to add to your queue!');
+          sweetAlert("Oops!", "you need to log in to add to your queue!", "error");
         } else {
           return $http({
             method: 'POST',
@@ -83,7 +83,7 @@ angular.module('movieApp').service("AuthService", function($http){
     $http.get('/private/profile')
       .then(function (response) {
         if (response.data.err) {
-          sweetAlert('Sorry, you need to log in to add to your queue!');
+          sweetAlert("Oops!", "you need to log in to add to your favorites!", "error");
         } else {
           return $http({
             method: 'POST',
